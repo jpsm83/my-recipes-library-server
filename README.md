@@ -127,6 +127,7 @@ You have to signin, login and logout to be able to use all the web functionality
   userName: {type: String, required: true, unique: true},
   email: {type: String, required: true, unique: true},
   password: {type: String, required: true},
+  recipes: []
 }
 ```
 
@@ -141,7 +142,7 @@ You have to signin, login and logout to be able to use all the web functionality
    img: {type: String},
    ingredients: {type: String, required: true},
    preparation: {type: String, required: true},
-   howToCook: {type: String, required: true},
+   howToCook: {type: String, required: true}
  }
 ```
 
