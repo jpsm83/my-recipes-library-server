@@ -9,7 +9,11 @@ const recipeSchema = new Schema({
     ingredients: { type: String, required: true },
     prepTime: { type: String, required: true },
     preparation: { type: String, required: true },
-    howToCook: { type: String, required: true }
+    howToCook: { type: String, required: true },
+    user: { 
+      type: Schema.Types.ObjectId,
+      ref: 'User'  
+    }
 }, {
   timestamps: true,
   toJSON: {
