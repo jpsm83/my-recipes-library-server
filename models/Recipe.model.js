@@ -1,3 +1,4 @@
+const { urlencoded } = require('body-parser');
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
@@ -10,9 +11,9 @@ const recipeSchema = new Schema({
     prepTime: { type: String, required: true },
     preparation: { type: String, required: true },
     howToCook: { type: String, required: true },
-    user: { 
+    user: {
       type: Schema.Types.ObjectId,
-      ref: 'User'  
+      ref: 'User'
     }
 }, {
   timestamps: true,

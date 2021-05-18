@@ -203,3 +203,28 @@ You have to signin, login and logout to be able to use all the web functionality
 
 ### Slides
 * [Figma](https://www.figma.com/file/qXacoaMeK3VZwah8Z5zY9i/Restaurant-Search?node-id=0%3A1)
+
+
+//   return(
+//     <div className="card" style="width: 18rem;">
+//       <Link to={`/recipes/${id}`}>
+//         <img className="card-img-top" src={image} alt={dishName}></img>
+//       </Link>
+//       <div className="card-body">
+//         <h5 className="card-title">{dishName}</h5>
+//         <p className="card-text">{cousine}</p>
+//         <p className="card-text">{type}</p>
+//         <p className="card-text">{prepTime}</p>
+//         <p className="card-text">{ingredients && {ingredients}}</p>
+//         <p className="card-text">{preparation && {preparation}}</p>
+//         <p className="card-text">{howToCook && {howToCook}}</p>
+//         {<Link to="/edit-recipe">
+//           <button className="btn btn-primary">Edit</button>
+//         </Link>}
+//         <button className="btn btn-primary" onClick={() => deleteRecipe()}>Delete</button>
+//       </div>
+//     </div>
+//     )
+// }
+
+// export default withAuth(RecipeCard);
