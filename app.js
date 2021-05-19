@@ -1,5 +1,3 @@
-const mongoose = require("mongoose")
-
 require('dotenv').config();
 const express = require('express');
 
@@ -12,16 +10,6 @@ require('./configs/cors.config')(app);
 
 require('./configs/session.config')(app);
 require('./configs/passport.config')(app);
-
-mongoose
-  .connect(
-  	process.env.MONGODB_URI,
-  	{
-    	keepAlive: true,
-    	useNewUrlParser: true,
-    	useUnifiedTopology: true
-  	}
-	);
 
 const recipeRouter = require('./routes/recipes.routes');
 const authRouter = require('./routes/auth.routes');
