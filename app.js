@@ -15,7 +15,7 @@ require('./configs/passport.config')(app);
 
 mongoose
   .connect(
-  	process.env.DBURL, 
+  	process.env.MONGODB_URI,
   	{
     	keepAlive: true,
     	useNewUrlParser: true,
