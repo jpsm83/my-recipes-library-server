@@ -1,7 +1,7 @@
 {
   "name": "my-recipes-library-server",
   "version": "1.0.0",
-  "description": "A aplication to create and manage your own recipes recepies.\r Create your own recepies, organize them by cousine, type, time of preparation or simply by name.\r Edit and delete anything you dont like at any time.",
+  "description": "Library aplication to find recipes by ingredients, save them as favorites, create your own and share with the publique",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -10,19 +10,19 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jpsm83/my-recipes-library-server.git"
+    "url": "https://github.com/jpsm83/my-recipes-library-server.git"
   },
   "keywords": [],
-  "author": "",
+  "author": "Joao P S Machado",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/jpsm83/my-recipes-library-server/issues"
   },
-  "homepage": "https://github.com/jpsm83/my-recipes-library-server#readme",
+  "homepage": "",
   "dependencies": {
-    "axios": "^0.21.1",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.19.0",
+    "cloudinary": "^1.27.1",
     "connect-mongo": "^4.4.1",
     "cookie-parser": "^1.4.5",
     "cors": "^2.8.5",
@@ -31,6 +31,8 @@
     "express-session": "^1.17.1",
     "mongoose": "^5.12.7",
     "morgan": "^1.10.0",
+    "multer": "^1.4.2",
+    "multer-storage-cloudinary": "^4.0.0",
     "passport": "^0.4.1",
     "passport-local": "^1.0.0"
   },
