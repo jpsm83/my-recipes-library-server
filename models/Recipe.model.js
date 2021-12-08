@@ -1,9 +1,8 @@
-const { urlencoded } = require('body-parser');
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const recipeSchema = new Schema({
-    dishName: { type: String, maxlength: 500, required: true, unique: true },
+    dishName: { type: String, maxlength: 500, required: true },
     cousine: { type: String, maxlength: 250 },
     type: { type: String, maxlength: 100 },
     image: { type: String },

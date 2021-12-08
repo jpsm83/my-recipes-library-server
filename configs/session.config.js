@@ -1,5 +1,5 @@
-const session = require('express-session');
-const MongoStore = require('connect-mongo');
+const session = require("express-session");
+const MongoStore = require("connect-mongo");
 
 module.exports = (app) => {
   app.use(
@@ -8,11 +8,11 @@ module.exports = (app) => {
       resave: true,
       saveUninitialized: true,
       cookie: {
-        maxAge: 30 * 24 * 60 * 60 * 1000
+        maxAge: 30 * 24 * 60 * 60 * 1000,
       },
       store: MongoStore.create({
-        mongoUrl: process.env.MONGODB_URI
-      })
+        mongoUrl: process.env.DBURL,
+      }),
     })
-  )
-}
+  );
+};

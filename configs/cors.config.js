@@ -1,14 +1,19 @@
-const cors = require('cors');
+// cross origin resurce sharing - CORS is a W3C standard that allows you to get
+// away from the same origin policy adopted by the browsers to restrict access
+// from one domain to resources belonging to another domain
+
+const cors = require("cors");
 
 module.exports = (app) => {
   app.use(
     cors({
-      credentials: true, 
+      // credentials=true recive a cookie from the front (client) to know with user is in session
+      credentials: true,
       origin: [
         process.env.PUBLIC_DOMAIN,
-        'http://myrecipeslibrary.herokuapp.com',
-        'https://myrecipeslibrary.herokuapp.com'       
-      ]
+        "http://myrecipeslibrary.herokuapp.com",
+        "https://myrecipeslibrary.herokuapp.com",
+      ],
     })
-  )
-}
+  );
+};
