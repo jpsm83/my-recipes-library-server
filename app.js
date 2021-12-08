@@ -23,10 +23,6 @@ app.use('/api/recipes', recipeRouter);
 app.use('/api/auth', authRouter);
 
 //  Catch 404 and respond with error message
-// app.use((req, res) => {
-//   res.sendFile(__dirname + "public/index.html")
-// });
-
 app.use((req, res, next) => {
   return res.status(404).json({ message: "Not found"});
 })
