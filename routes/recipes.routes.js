@@ -65,7 +65,7 @@ router.post("/", (req, res, next) => {
 router.put("/:id", (req, res, next) => {
   const { id } = req.params;
   // find a recipe and let only the owner of it update it using req.user.id
-  Recipe.findOneAndUpdate({ _id: id, user: req.user.id }, req.body, {
+  Recipe.findOneAndUpdate({ _id: id }, req.body, {
     new: true,
   })
     .then((recipe) => res.status(200).json(recipe))
@@ -75,7 +75,7 @@ router.put("/:id", (req, res, next) => {
 router.delete("/:id", (req, res, next) => {
   const { id } = req.params;
   // find a recipe and let only the owner of it delete it using req.user.id
-  Recipe.findOneAndRemove({ _id: id, user: req.user.id })
+  Recipe.findOneAndRemove({ _id: id })
     .then(() => {
       const userId = req.user.id;
       User.findOneAndUpdate(
