@@ -63,7 +63,6 @@ router.post("/login", (req, res, next) => {
     if (error) {
       return res.status(500).json(error);
     }
-
     if (!theUser) {
       // error message (failureDetails) comes from passport.config
       // error 401 - unauthorized
@@ -75,13 +74,15 @@ router.post("/login", (req, res, next) => {
         return res.status(500).json(error);
       }
 
-      // without populate you will an array of ids, with populate you get the whole document
-      theUser.populate({
-        // the path has the path name of the database in mongodb
-        path: "recipes",
-        // the model has the name of the model exported
-        model: "Recipe",
-      });
+      // theUser.populate("myRecipes")
+
+      // // without populate you will an array of ids, with populate you get the whole document
+      // theUser.populate({
+      //   // the path has the path name of the database in mongodb
+      //   path: "recipes",
+      //   // the model has the name of the model exported
+      //   model: "Recipe",
+      // });
 
       return res.status(200).json(theUser);
     });
@@ -102,16 +103,29 @@ router.post("/logout", (req, res, next) => {
 
 // cloudnary router for upload photo???
 router.put("/edit-user", uploader.single("photo"), (req, res, next) => {
+  const { username, email, password, photo } = req.body;
+  // validators have to be equal to validators from frontend
+  if (password.length < 5) {
+    // error 400 - bad request
+    return res.status(400).json({
+      message: "Please make your password at least 5 characters long",
+    });
+  }
+
+  const salt = bcrypt.genSaltSync(bcryptSalt);
+  const hashPass = bcrypt.hashSync(password, salt);
+
   User.findOneAndUpdate(
     { _id: req.user.id },
-    { ...req.body, photo: req.file ? req.file.path : req.user.photo },
+    // { ...req.body, photo: req.file ? req.file.path : req.user.photo },
+    { username, email, password: hashPass, photo },
     { new: true }
   )
     .then((user) => res.status(200).json(user))
     .catch((error) => res.status(500).json(error));
 });
 
-router.get("/loggedin", (req, res, next) => {
+router.get("/isLoggedin", (req, res, next) => {
   // req.isAuthenticated & req.user are defined by passport
   if (req.isAuthenticated()) {
     return res.status(200).json(req.user);

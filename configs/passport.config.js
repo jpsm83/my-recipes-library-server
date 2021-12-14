@@ -13,7 +13,7 @@ module.exports = (app) => {
   // deserializeUser identify with user belongs the session
   passport.deserializeUser((id, cb) => {
     User.findById(id)
-      .populate("Recipe")
+      // .populate("Recipe")
       .then((user) => cb(null, user))
       .catch((error) => cb(error));
   });

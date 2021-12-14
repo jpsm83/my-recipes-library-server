@@ -28,8 +28,8 @@ router.post("/", (req, res, next) => {
     prepTime,
     preparation,
     howToCook,
+    servings,
   } = req.body;
-
   if (!req.body) {
     // error code 400 - bad request
     return res.status(400).json({ message: "All fields are required" });
@@ -44,7 +44,8 @@ router.post("/", (req, res, next) => {
     prepTime,
     preparation,
     howToCook,
-    user: req.user.id,
+    servings,
+    chef: req.user.id,
   })
     .then((recipe) => {
       const userId = req.user.id;

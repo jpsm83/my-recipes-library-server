@@ -4,17 +4,18 @@ const Schema = mongoose.Schema;
 
 const recipeSchema = new Schema(
   {
-    dishName: { type: String, maxlength: 500, required: true },
+    dishName: { type: String, maxlength: 200, required: true },
     cousine: { type: String, maxlength: 250, required: true },
     type: { type: String, maxlength: 100, required: true  },
     image: { type: String, default:
       "https://images.immediate.co.uk/production/volatile/sites/30/2020/08/chorizo-mozarella-gnocchi-bake-cropped-9ab73a3.jpg",
 },
-    ingredients: { type: String, required: true },
+    ingredients: { type: String, maxlength: 1000, required: true },
     prepTime: { type: String, required: true },
-    preparation: { type: String, required: true },
-    howToCook: { type: String, required: true },
-    user: {
+    preparation: { type: String, maxlength: 2000, required: true },
+    howToCook: { type: String,maxlength: 2000, required: true },
+    servings : { type: String, required: true },
+    chef: {
       type: Schema.Types.ObjectId,
       ref: "User",
     },
