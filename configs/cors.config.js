@@ -2,6 +2,7 @@
 // away from the same origin policy adopted by the browsers to restrict access
 // from one domain to resources belonging to another domain
 
+
 const cors = require("cors");
 
 module.exports = (app) => {
