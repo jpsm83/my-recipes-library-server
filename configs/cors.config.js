@@ -12,7 +12,9 @@ module.exports = (app) => {
       origin: [
         process.env.PUBLIC_DOMAIN,
         // must setup coors to alow your production webpage to acess information
-        "https://my-recipes-library-app.herokuapp.com",
+        "https://vercel.com/jpsm83/my-recipes-library/9MekZfT9NcL1etSGQS6AEoU24fUT",
+        "https://my-recipes-library.vercel.app",
+        "https://my-recipes-library-3qe1ysojh-jpsm83.vercel.app",
       ],
     })
   );
