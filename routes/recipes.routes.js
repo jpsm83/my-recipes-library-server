@@ -1,3 +1,8 @@
+// .populate in recipes.routes are causing error in the front end
+// Objects are not valid as a React child
+// .populate in auth.routes are working fine
+// why??? only god knows...
+
 const express = require("express");
 const Recipe = require("../models/Recipe.model");
 const User = require("../models/User.model");
@@ -6,7 +11,7 @@ const router = express.Router();
 router.get("/", (req, res, next) => {
   // get the personal recipes
   Recipe.find({})
-  .populate("chef", "username")
+  // .populate("chef", "username")
     .then((recipes) => res.status(200).json(recipes))
     .catch((err) => res.status(500).json(err));
 });
@@ -15,7 +20,7 @@ router.get("/:id", (req, res, next) => {
   const { id } = req.params;
   // get an especific recipe
   Recipe.findOne({ _id: id })
-  .populate("chef", "username")
+  // .populate("chef", "username")
     .then((recipe) => res.status(200).json(recipe))
     .catch((err) => res.status(500).json(err));
 });

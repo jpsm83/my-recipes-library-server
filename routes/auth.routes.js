@@ -1,3 +1,9 @@
+// .populate in recipes.routes are causing error in the front end
+// Objects are not valid as a React child
+// .populate in auth.routes are working fine
+// why??? only god knows...
+
+
 // authentication routes for User.model - login, signup, logout, edit, loggedin
 
 const express = require("express");
