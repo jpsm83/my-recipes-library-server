@@ -1,4 +1,4 @@
-// mongoose is a mongodb library that help to create models easyer and faster
+// mongoose is a mongodb library that help create models easyer and faster
 const mongoose = require("mongoose");
 require('dotenv').config();
 
