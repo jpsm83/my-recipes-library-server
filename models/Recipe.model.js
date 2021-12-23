@@ -18,7 +18,7 @@ const recipeSchema = new Schema(
     howToCook: { type: String, maxlength: 2000, required: true },
     servings: { type: String, required: true },
     chef: {
-      type: Schema.Types.ObjectId,
+      type: mongoose.Schema.Types.ObjectId,
       ref: "User",
     },
   },

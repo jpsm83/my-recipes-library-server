@@ -24,7 +24,7 @@ const userSchema = new Schema(
     },
     myRecipes: [
       {
-        type: Schema.Types.ObjectId,
+        type: mongoose.Schema.Types.ObjectId,
         ref: "Recipe",
       },
     ],

@@ -59,6 +59,7 @@ router.post("/signup", (req, res, next) => {
 });
 
 router.post("/login", (req, res, next) => {
+  // here it is using passport.config.js configurations
   passport.authenticate("local", (error, theUser, failureDetails) => {
     if (error) {
       return res.status(500).json(error);
@@ -73,16 +74,14 @@ router.post("/login", (req, res, next) => {
       if (error) {
         return res.status(500).json(error);
       }
+      // without populate you will an array of ids, with populate you get the whole document
 
-      // theUser.populate("myRecipes")
+      // first parameter is the property name from user model
+      // second parameter is the propertys of the populate object
 
-      // // without populate you will an array of ids, with populate you get the whole document
-      // theUser.populate({
-      //   // the path has the path name of the database in mongodb
-      //   path: "recipes",
-      //   // the model has the name of the model exported
-      //   model: "Recipe",
-      // });
+      // in this case, "myRecipes" props in the user model refers to "Recipe" model
+      // where you will find the second parameter "dishName"
+      theUser.populate("myRecipes", "dishName")
 
       return res.status(200).json(theUser);
     });
